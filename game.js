@@ -190,23 +190,18 @@ function drawGround() {
 }
 
 function drawBird() {
-  const bird = IMAGES.bird;
+  // Draw a simple yellow rectangle bird with eye and beak
   ctx.save();
   ctx.translate(BIRD_X, birdY);
   ctx.rotate(Math.min(birdVY / 10, 0.5));
-  if (bird.complete) {
-    ctx.drawImage(
-      bird,
-      -BIRD_SIZE/2, -BIRD_SIZE/2, BIRD_SIZE, BIRD_SIZE
-    );
-  } else {
-    ctx.fillStyle = '#ff0';
-    ctx.fillRect(-BIRD_SIZE/2, -BIRD_SIZE/2, BIRD_SIZE, BIRD_SIZE);
-    ctx.fillStyle = '#222';
-    ctx.fillRect(4, -6, 4, 4);
-    ctx.fillStyle = '#f80';
-    ctx.fillRect(BIRD_SIZE/2-2, -2, 6, 4);
-  }
+  ctx.fillStyle = '#ff0';
+  ctx.fillRect(-BIRD_SIZE/2, -BIRD_SIZE/2, BIRD_SIZE, BIRD_SIZE);
+  // Eye
+  ctx.fillStyle = '#222';
+  ctx.fillRect(4, -6, 4, 4);
+  // Beak
+  ctx.fillStyle = '#f80';
+  ctx.fillRect(BIRD_SIZE/2-2, -2, 6, 4);
   ctx.restore();
 }
 
